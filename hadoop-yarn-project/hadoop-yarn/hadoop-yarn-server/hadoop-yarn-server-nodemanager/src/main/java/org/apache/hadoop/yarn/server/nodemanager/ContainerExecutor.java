@@ -226,7 +226,7 @@ public abstract class ContainerExecutor implements Configurable {
     }
 
     sb.command(command);
-    LOG.info("Command : " + Arrays.toString(command));
+    LOG.info("Command : " + Arrays.toString(command.toArray()));
 
     PrintStream pout = null;
     try {
