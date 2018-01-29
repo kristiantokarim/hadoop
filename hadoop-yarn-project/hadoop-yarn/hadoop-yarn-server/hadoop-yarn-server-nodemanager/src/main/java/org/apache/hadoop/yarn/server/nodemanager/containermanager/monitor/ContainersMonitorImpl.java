@@ -412,7 +412,7 @@ public class ContainersMonitorImpl extends AbstractService implements
 
                 ResourceCalculatorProcessTree pt =
                     ResourceCalculatorProcessTree.getResourceCalculatorProcessTree(pId, processTreeClass, conf);
-                LOG.info("JVM PID : " + pId);
+
                 ptInfo.setPid(pId);
                 ptInfo.setProcessTree(pt);
 
