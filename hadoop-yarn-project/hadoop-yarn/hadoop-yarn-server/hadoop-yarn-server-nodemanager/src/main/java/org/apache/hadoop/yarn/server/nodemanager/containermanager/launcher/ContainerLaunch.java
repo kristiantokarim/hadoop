@@ -190,6 +190,10 @@ public class ContainerLaunch implements Callable<Integer> {
         // TODO: Should we instead work via symlinks without this grammar?
         newCmds.add(expandEnvironment(str, containerLogDir));
       }
+      newCmds.add("-hottub");
+      newCmds.add("-XX:+HotTubReinit");
+      newCmds.add("-DPrintClassLoading=true");
+
       launchContext.setCommands(newCmds);
 
       Map<String, String> environment = launchContext.getEnvironment();
@@ -271,7 +275,6 @@ public class ContainerLaunch implements Callable<Integer> {
         // Write out the environment
         exec.writeLaunchEnv(containerScriptOutStream, environment, localResources,
             launchContext.getCommands());
-        LOG.info("Command : " + Arrays.toString(launchContext.getCommands().toArray()));
         
         // /////////// End of writing out container-script
 
