@@ -166,7 +166,7 @@ extends ContainerLaunchContext {
     initCommands();
     this.commands.clear();
     this.commands.addAll(commands);
-    for (str : commands){
+    for (String str : commands){
         LOG.info("Commands" : str);
     }
   }
