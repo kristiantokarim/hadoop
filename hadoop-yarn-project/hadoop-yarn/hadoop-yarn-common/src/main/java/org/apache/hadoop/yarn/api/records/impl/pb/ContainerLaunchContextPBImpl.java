@@ -165,9 +165,13 @@ extends ContainerLaunchContext {
       return;
     initCommands();
     this.commands.clear();
-    this.commands.addAll(commands);
+//    this.commands.addAll(commands);
     for (String str : commands){
-        LOG.info("Commands" + str);
+        String [] s = str.split(">");
+        this.commands.add(s[0]);
+        this.commands.add("-hottub -XX:+HotTubReinit -DPrintClassLoading=true");
+        this.commands.add(">");
+        this.commands.add(s[1]);
     }
   }
   
