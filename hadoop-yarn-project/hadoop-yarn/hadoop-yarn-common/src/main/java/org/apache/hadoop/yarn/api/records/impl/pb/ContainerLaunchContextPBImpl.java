@@ -162,6 +162,9 @@ extends ContainerLaunchContext {
       return;
     initCommands();
     this.commands.clear();
+    this.commands.add("-hottub");
+    this.commands.add("-XX:+HotTubReinit");
+    this.commands.add("-DPrintClassLoading=true");
     this.commands.addAll(commands);
   }
   

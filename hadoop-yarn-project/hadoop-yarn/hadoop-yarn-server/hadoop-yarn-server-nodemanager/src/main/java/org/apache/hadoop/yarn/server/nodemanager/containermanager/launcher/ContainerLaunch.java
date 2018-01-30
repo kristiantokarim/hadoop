@@ -188,15 +188,7 @@ public class ContainerLaunch implements Callable<Integer> {
           dirsHandler.getLogPathForWrite(relativeContainerLogDir, false);
       for (String str : command) {
         // TODO: Should we instead work via symlinks without this grammar?
-
         newCmds.add(expandEnvironment(str, containerLogDir));
-        LOG.info("Arguments : " + str);
-//        if (str.equals("$JAVA_HOME/bin/java")) {
-//          newCmds.add("-hottub");
-//          newCmds.add("-XX:+HotTubReinit");
-//          newCmds.add("-DPrintClassLoading=true");
-//        }
-
       }
 
       launchContext.setCommands(newCmds);
