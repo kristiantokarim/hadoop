@@ -167,11 +167,15 @@ extends ContainerLaunchContext {
     this.commands.clear();
 //    this.commands.addAll(commands);
     for (String str : commands){
-        String [] s = str.split(">");
-        this.commands.add(s[0]);
-        this.commands.add("-hottub -XX:+HotTubReinit -DPrintClassLoading=true");
-        this.commands.add(">");
-        this.commands.add(s[1]);
+        if (str.indexOf('>') > 0 ) {
+            String[] s = str.split(">");
+            this.commands.add(s[0]);
+            this.commands.add("-hottub -XX:+HotTubReinit -DPrintClassLoading=true");
+            this.commands.add(">");
+            this.commands.add(s[1]);
+        } else {
+          this.commands.add(str);
+        }
     }
   }
   
