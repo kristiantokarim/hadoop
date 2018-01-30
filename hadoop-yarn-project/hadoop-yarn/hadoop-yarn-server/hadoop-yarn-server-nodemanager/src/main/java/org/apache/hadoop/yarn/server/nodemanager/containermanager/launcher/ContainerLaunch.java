@@ -181,9 +181,6 @@ public class ContainerLaunch implements Callable<Integer> {
       // /////////////////////////// Variable expansion
       // Before the container script gets written out.
       List<String> newCmds = new ArrayList<String>(command.size());
-      newCmds.add("hottub");
-      newCmds.add("XX:+HotTubReinit");
-      newCmds.add("DPrintClassLoading=true");
       String appIdStr = app.getAppId().toString();
       String relativeContainerLogDir = ContainerLaunch
           .getRelativeContainerLogDir(appIdStr, containerIdStr);
@@ -192,6 +189,7 @@ public class ContainerLaunch implements Callable<Integer> {
       for (String str : command) {
         // TODO: Should we instead work via symlinks without this grammar?
         newCmds.add(expandEnvironment(str, containerLogDir));
+        LOG.inf(str);
       }
 
       launchContext.setCommands(newCmds);
