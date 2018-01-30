@@ -189,7 +189,7 @@ public class ContainerLaunch implements Callable<Integer> {
       for (String str : command) {
         // TODO: Should we instead work via symlinks without this grammar?
         newCmds.add(expandEnvironment(str, containerLogDir));
-        LOG.inf(str);
+        LOG.info(str);
       }
 
       launchContext.setCommands(newCmds);
