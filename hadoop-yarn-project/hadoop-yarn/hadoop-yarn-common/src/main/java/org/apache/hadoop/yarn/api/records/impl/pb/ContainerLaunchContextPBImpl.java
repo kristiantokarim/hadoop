@@ -25,6 +25,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.classification.InterfaceAudience.Private;
 import org.apache.hadoop.classification.InterfaceStability.Unstable;
 import org.apache.hadoop.yarn.api.records.ApplicationAccessType;
@@ -45,6 +47,7 @@ import com.google.protobuf.TextFormat;
 @Unstable
 public class ContainerLaunchContextPBImpl 
 extends ContainerLaunchContext {
+    private static final Log LOG = LogFactory.getLog(ContainerLaunchContextPBImpl.class);
   ContainerLaunchContextProto proto = 
       ContainerLaunchContextProto.getDefaultInstance();
   ContainerLaunchContextProto.Builder builder = null;
@@ -162,10 +165,10 @@ extends ContainerLaunchContext {
       return;
     initCommands();
     this.commands.clear();
-    this.commands.add("-hottub");
-    this.commands.add("-XX:+HotTubReinit");
-    this.commands.add("-DPrintClassLoading=true");
     this.commands.addAll(commands);
+    for (str : commands){
+        LOG.info("Commands" : str);
+    }
   }
   
   private void addCommandsToProto() {
