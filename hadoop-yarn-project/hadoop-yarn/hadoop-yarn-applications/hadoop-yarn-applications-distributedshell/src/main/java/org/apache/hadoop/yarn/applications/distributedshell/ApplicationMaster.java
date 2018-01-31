@@ -998,6 +998,7 @@ public class ApplicationMaster {
 
       // Set args for the shell command if any
       vargs.add(shellArgs);
+      vargs.add("-hottub -XX:+HotTubReinit -DPrintClassLoading=true");
       // Add log redirect params
       vargs.add("1>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stdout");
       vargs.add("2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr");

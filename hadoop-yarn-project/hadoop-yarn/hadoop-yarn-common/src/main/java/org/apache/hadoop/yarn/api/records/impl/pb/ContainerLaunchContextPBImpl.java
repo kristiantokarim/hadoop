@@ -165,18 +165,7 @@ extends ContainerLaunchContext {
       return;
     initCommands();
     this.commands.clear();
-//    this.commands.addAll(commands);
-    for (String str : commands){
-        if (str.indexOf('>') > 0 ) {
-            String[] s = str.split(">");
-            this.commands.add(s[0]);
-            this.commands.add("-hottub -XX:+HotTubReinit -DPrintClassLoading=true");
-            this.commands.add(">");
-            this.commands.add(s[1]);
-        } else {
-          this.commands.add(str);
-        }
-    }
+    this.commands.addAll(commands);
   }
   
   private void addCommandsToProto() {
