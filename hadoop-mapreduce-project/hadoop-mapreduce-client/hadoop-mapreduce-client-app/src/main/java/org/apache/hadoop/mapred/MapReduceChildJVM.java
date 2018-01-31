@@ -141,7 +141,7 @@ public class MapReduceChildJVM {
     Vector<String> vargs = new Vector<String>(8);
 
     vargs.add(MRApps.crossPlatformifyMREnv(task.conf, Environment.JAVA_HOME)
-        + "/bin/java");
+        + "/bin/java -hottub -XX:+HotTubReinit -DPrintClassLoading=true");
 
     // Add child (task) java-vm options.
     //
