@@ -390,7 +390,7 @@ public class YARNRunner implements ClientProtocol {
     // Setup the command to run the AM
     List<String> vargs = new ArrayList<String>(8);
     vargs.add(MRApps.crossPlatformifyMREnv(jobConf, Environment.JAVA_HOME)
-        + "/bin/java -hottub -XX:+HotTubReinit -DPrintClassLoading=true");
+        + "/bin/java");
 
     MRApps.addLog4jSystemProperties(null, vargs, conf);
 

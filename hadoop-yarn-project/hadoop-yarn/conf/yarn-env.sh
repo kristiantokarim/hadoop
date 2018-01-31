@@ -31,7 +31,7 @@ if [ "$JAVA_HOME" = "" ]; then
   exit 1
 fi
 
-JAVA=$JAVA_HOME/bin/java -hottub -XX:+HotTubReinit -DPrintClassLoading=true
+JAVA=$JAVA_HOME/bin/java
 JAVA_HEAP_MAX=-Xmx1000m 
 
 # For setting YARN specific HEAP sizes please use this
